@@ -38,3 +38,4 @@ if (ValidateNumber(number))
         System.Console.WriteLine("Это число не является палиндромом");
     }
 }
+
