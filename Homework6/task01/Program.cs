@@ -11,7 +11,7 @@ void EnteringElements(int[] myArray)
 {
     for (int i = 0; i < myArray.Length; i++)
     {
-        System.Console.Write($"Введите элемент массива с индексом {i}: ");
+        System.Console.Write($"Введите число с индексом {i}: ");
         myArray[i] = int.Parse(System.Console.ReadLine());
     }
 }
