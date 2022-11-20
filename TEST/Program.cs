@@ -1,17 +1,26 @@
-﻿Person Petr;
-Petr = new Person();
-Petr.firstName = "Petr";
-Petr.lastName = "Ivanov";
-Petr.ShowFullName();
-class Person
-
+﻿(double, double) MinAndMax(double[] numbers)
 {
-    // Поля
-    public string firstName;
-    public string lastName;
-    // Метод
-    public void ShowFullName()
+    double min = Int32.MaxValue;
+    double max = Int32.MinValue;
+
+    for (int i = 0; i < numbers.Length; i++)
     {
-        Console.WriteLine("Name is " + firstName + " " + lastName);
+        if (numbers[i] > max)
+        {
+            max = numbers[i];
+        }
+        if (numbers[i] < min)
+        {
+            min = numbers[i];
+        }
     }
+    return (max, min);
 }
+
+double dblMax = 0;
+double dblMin = 0;
+(dblMax, dblMin) = MinAndMax(numbers);
+
+Console.WriteLine($"Максимальное значение = {dblMax}");
+Console.WriteLine($"Минимальное значение = {dblMin}");
+Console.WriteLine($"Разница между максимальным и минимальным значением = {(dblMax - dblMin):F2}");

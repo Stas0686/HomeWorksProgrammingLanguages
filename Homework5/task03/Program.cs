@@ -7,24 +7,33 @@ int size = Convert.ToInt32(Console.ReadLine());
 double[] numbers = new double[size];
 FillArrayRandomNumbers(numbers);
 PrintArray(numbers);
-double min = Int32.MaxValue;
-double max = Int32.MinValue;
 
-for (int i = 0; i < numbers.Length; i++)
+(double, double) MinAndMax(double[] numbers)
 {
-    if (numbers[i] > max)
+    double min = Int32.MaxValue;
+    double max = Int32.MinValue;
+
+    for (int i = 0; i < numbers.Length; i++)
     {
-        max = numbers[i];
+        if (numbers[i] > max)
+        {
+            max = numbers[i];
+        }
+        if (numbers[i] < min)
+        {
+            min = numbers[i];
+        }
     }
-    if (numbers[i] < min)
-    {
-        min = numbers[i];
-    }
+    return (max, min);
 }
 
-Console.WriteLine($"Максимальное значение = {max}");
-Console.WriteLine($"Минимальное значение = {min}");
-Console.WriteLine($"Разница между максимальным и минимальным значением = {(max - min):F2}");
+double dblMax = 0;
+double dblMin = 0;
+(dblMax, dblMin) = MinAndMax(numbers);
+
+Console.WriteLine($"Максимальное значение = {dblMax}");
+Console.WriteLine($"Минимальное значение = {dblMin}");
+Console.WriteLine($"Разница между максимальным и минимальным значением = {(dblMax - dblMin):F2}");
 
 void FillArrayRandomNumbers(double[] numbers)
 {

@@ -8,12 +8,18 @@ int size = Convert.ToInt32(Console.ReadLine());
 int[] numbers = new int[size];
 FillArrayRandomNumbers(numbers);
 PrintArray(numbers);
-int sum = 0;
 
-for (int i = 0; i < numbers.Length; i += 2)
-    sum = sum + numbers[i];
+int SumNumbers(int[] numbers)
+{
+    int sum = 0;
+    for (int i = 0; i < numbers.Length; i += 2)
+    {
+        sum = sum + numbers[i];
+    }
+    return sum;
+}
 
-Console.WriteLine($"Cумма элементов на нечётных позициях = {sum}");
+Console.WriteLine($"Cумма элементов на нечётных позициях = {SumNumbers (numbers)}");
 
 void FillArrayRandomNumbers(int[] numbers)
 {

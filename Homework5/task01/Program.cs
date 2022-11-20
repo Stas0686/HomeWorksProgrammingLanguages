@@ -18,15 +18,23 @@ void PrintArray(int[] numbers)
     Console.WriteLine();
 }
 
+
+int CountEven(int[] numbers)
+{
+    int count = 0;
+    for (int i = 0; i < numbers.Length; i++)
+    {
+        if (numbers[i] % 2 == 0)
+        {
+            count++;
+        }
+    }
+    return count;
+}
+
 Console.Write("Введите размер массива: ");
 int size = Convert.ToInt32(Console.ReadLine());
 int[] numbers = new int[size];
 FillArrayRandomNumbers(numbers);
 PrintArray(numbers);
-
-int count = 0;
-for (int i = 0; i < numbers.Length; i++)
-    if (numbers[i] % 2 == 0)
-        count++;
-
-Console.WriteLine($"Всего {count} чётных чисел");
+Console.WriteLine($"Всего {CountEven (numbers)} чётных чисел");
