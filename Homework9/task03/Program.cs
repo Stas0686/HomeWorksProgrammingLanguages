@@ -1,2 +1,26 @@
-﻿// See https://aka.ms/new-console-template for more information
-Console.WriteLine("Hello, World!");
+﻿// Задача 3: Напишите программу вычисления функции Аккермана с 
+// помощью рекурсии. Даны два неотрицательных числа m и n. 
+// m = 3, n = 2 -> A(m,n) = 29
+
+int Prompt(string strMessage)
+{
+    System.Console.Write(strMessage);
+    int temp = Convert.ToInt32(Console.ReadLine());
+    return temp;
+}
+
+int Akkerman(int m, int n)
+{
+    if (m == 0) return n + 1;
+    if (n == 0 && m > 0) return Akkerman(m - 1, 1);
+    return (Akkerman(m - 1, Akkerman(m, n - 1)));
+}
+
+void AkkermanFunction(int m, int n)
+{
+    Console.Write(Akkerman(m, n));
+}
+
+int m = Prompt("Введите целое неотрицательное число M: ");
+int n = Prompt("Введите целое неотрицательное число N: ");
+AkkermanFunction(m, n);
