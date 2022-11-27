@@ -10,16 +10,16 @@ int Prompt(string strMessage)
     return temp;
 }
 
-int PrintEvenNumbers(int m, int n)
+int SumNumbers(int m, int n)
 {
     if (n < m)
     {
         return 0;
     }
-    return m + PrintEvenNumbers(m + 1, n);
+    return m + SumNumbers(m + 1, n);
 }
 
 int m = Prompt("Введите целое число M: ");
 int n = Prompt("Введите целое число N: ");
 
-System.Console.WriteLine(PrintEvenNumbers(m, n));
+System.Console.WriteLine(SumNumbers(m, n));
